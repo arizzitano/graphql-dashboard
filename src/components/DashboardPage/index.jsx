@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const DashboardPage = ({ enrollments }) => (
+const DashboardPage = ({ data }) => (
   <div>
     <ul>
-      {enrollments.map(enrollment => (
-        <li>
-          <span>{enrollment.title}</span>
-        </li>
+      {data.enrollments &&
+        data.enrollments.map(enrollment => (
+          <li>
+            <span>{enrollment.courseRun.title}</span>
+          </li>
       ))}
     </ul>
   </div>
@@ -15,11 +16,11 @@ const DashboardPage = ({ enrollments }) => (
 
 
 DashboardPage.defaultProps = {
-  enrollments: [],
+  data: {},
 };
 
 DashboardPage.propTypes = {
-  enrollments: PropTypes.arrayOf(PropTypes.object),
+  data: PropTypes.shape,
 };
 
 export default DashboardPage;

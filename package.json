@@ -1,8 +1,8 @@
 {
-  "name": "edx-cookie-cutter",
-  "version": "0.1.0",
-  "description": "Starter app from the ground up",
-  "repository": "https://github.com/jaebradley/edx-cookie-cutter",
+  "name": "@arizzitano/graphql-dashboard",
+  "version": "0.0.1",
+  "description": "Sample GraphQL page for the LMS dashboard",
+  "repository": "https://github.com/arizzitano/graphql-dashboard",
   "scripts": {
     "build": "NODE_ENV=production BABEL_ENV=production webpack --config=config/webpack.prod.config.js",
     "deploy:gh-pages": "npm run build && gh-pages -d dist",

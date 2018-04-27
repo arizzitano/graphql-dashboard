@@ -5,6 +5,7 @@ const path = require('path');
 module.exports = {
   entry: {
     app: path.resolve(__dirname, '../src/index.jsx'),
+    WrappedDashboardPage: path.resolve(__dirname, '../src/containers/WrappedDashboardPage/index.jsx'),
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
