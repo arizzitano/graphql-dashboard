@@ -6,7 +6,7 @@ import WrappedDashboardPage from './containers/WrappedDashboardPage';
 import './App.scss';
 
 const App = () => (
-  <WrappedDashboardPage apiUri="http://localhost:3000/graphql" />
+  <WrappedDashboardPage apiUri="http://localhost:3000/graphql"/>
 );
 
 ReactDOM.render(<App />, document.getElementById('root'));
