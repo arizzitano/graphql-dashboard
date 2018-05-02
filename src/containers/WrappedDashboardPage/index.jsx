@@ -10,21 +10,20 @@ const createClient = apiUri => new ApolloClient({
   uri: apiUri,
 });
 
-const WrappedDashboardPage = ({ apiUri }) => (
+const WrappedDashboardPage = ({ apiUri, username }) => (
   <ApolloProvider client={createClient(apiUri)}>
     <Query
       query={gql`
         {
-          user(firstName: "Rafaela") {
-            firstName
-            lastName
-            enrollments {
-              mode
-              courseRun {
-                title
-                fullDescription
-                shortDescription
-              }
+          enrollments(username: "${username}") {
+            username
+            mode
+            created
+            courseRun {
+              id
+              title
+              start
+              end
             }
           }
         }
@@ -33,8 +32,12 @@ const WrappedDashboardPage = ({ apiUri }) => (
       {({ loading, error, data }) => {
         if (loading) return <p>Loading...</p>;
         if (error) return <p>Error :(</p>;
-        console.log(data);
-        return <DashboardPage data={data.user} />;
+        return (
+          <div>
+            <p>Logged in as {username}</p>
+            <DashboardPage enrollments={data} />
+          </div>
+        );
       }}
     </Query>
   </ApolloProvider>
@@ -42,6 +45,7 @@ const WrappedDashboardPage = ({ apiUri }) => (
 
 WrappedDashboardPage.propTypes = {
   apiUri: PropTypes.string,
+  username: PropTypes.string.isRequired,
 };
 
 WrappedDashboardPage.defaultProps = {
