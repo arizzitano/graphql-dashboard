@@ -35,7 +35,7 @@ const WrappedDashboardPage = ({ apiUri, username }) => (
         return (
           <div>
             <p>Logged in as {username}</p>
-            <DashboardPage enrollments={data} />
+            <DashboardPage enrollments={data.enrollments} />
           </div>
         );
       }}

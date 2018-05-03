@@ -6,8 +6,8 @@ const DashboardPage = ({ enrollments }) => (
     <h3>Enrollments</h3>
     <ul>
       {enrollments &&
-        enrollments.map(enrollment => (
-          <li>
+        enrollments.map((enrollment, i) => (
+          <li key={i}>
             <span>{enrollment.courseRun.title}</span>
           </li>
       ))}
@@ -15,13 +15,12 @@ const DashboardPage = ({ enrollments }) => (
   </div>
 );
 
-
 DashboardPage.defaultProps = {
   enrollments: [],
 };
 
 DashboardPage.propTypes = {
-  enrollments: PropTypes.shape,
+  enrollments: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default DashboardPage;
